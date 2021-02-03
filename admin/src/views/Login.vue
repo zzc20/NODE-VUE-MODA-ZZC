@@ -9,7 +9,7 @@
           <el-input v-model="model.password"></el-input>
         </el-form-item>
         <el-form-item>
-          <el-button type="primary" native-type="submit" style="margin-left: 120px;">登录</el-button>
+          <el-button type="primary" native-type="submit">登录</el-button>
         </el-form-item>
       </el-form>
     </el-card>
@@ -28,8 +28,13 @@ export default {
   },
   methods: {
     async save() {
-      await this.$request.post('/login', this.model)
-
+      const res = await this.$request.post('/login', this.model)
+      // console.log(res.data.token);
+      localStorage.setItem('token', res.data.token)
+      if(res.data.token) {
+        this.$router.push("/");
+      }
+      
     }
   }
 }

@@ -32,8 +32,6 @@ const AdList = () => import('../views/AdList.vue')
 const AdminUserEdit = () => import('../views/AdminUserEdit.vue')
 const AdminUserList = () => import('../views/AdminUserList.vue')
 
-
-
 Vue.use(VueRouter)
 
 const routes = [
